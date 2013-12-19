@@ -1,0 +1,5 @@
+# Ignores
+var/cache/*
+var/session/*
+app/etc/local.xml
+
