@@ -1,0 +1,108 @@
+/* Document CSS */
+a, 
+a.forcus, 
+a:hover{
+	color: #7ca647;
+}
+.header .links a:hover{
+	color: #7ca647;
+}
+.show .slide .item-desc h1.title a{
+	color: #7ca647;
+}
+.top1 .block-cart{
+	background: #613879;
+}
+.block-cart .actions button.button:hover span span,
+.block-cart .actions button.button:hover span{
+	color: #ddd;
+}
+.nav-container{
+	background: url("../images/green/omgmenu-bg.png") repeat-x scroll 0 0 transparent;
+}
+#nav li.over,
+#nav li.active{
+	background: #7ca647;
+}
+div.breadcrumbs{
+	background: #484848;
+}
+.breadcrumbs li span {
+	color: #484848;
+}
+.maintopBlock2 .widget-block .widget-i{
+	background: url("../images/green/saleoff-bg.png") no-repeat scroll 0 0 #7ca647;
+}
+.block-title{
+	background: #7ca647;
+}
+.col-left .bestselling-products .products-list li.item:hover,
+.col-right .bestselling-products .products-list li.item:hover{
+	background: #613879;
+}
+.col-left .bestselling-products .products-list button.button, 
+.col-left .bestselling-products .products-list button.btn-cart,
+.col-right .bestselling-products .products-list button.button, 
+.col-right .bestselling-products .products-list button.btn-cart{
+	background: url("../images/plus.png") no-repeat scroll center center #613879;
+}
+.col-left .bestselling-products .products-list li.item:hover button.button, 
+.col-left .bestselling-products .products-list li.item:hover button.btn-cart,
+.col-right .bestselling-products .products-list li.item:hover button.button, 
+.col-right .bestselling-products .products-list li.item:hover button.btn-cart{
+	background: url("../images/plus.png") no-repeat scroll center center #7ca647;
+}
+.col-left ul li a:hover,
+.col-right ul li a:hover{
+	color: #7ca647;
+}
+ul.list-category li a.current, 
+ul.list-category li li a.current{
+	color: #7ca647;
+}
+button.btn-cart, 
+div.actions button.btn-cart{
+	background: url("../images/plus.png") no-repeat scroll 10px center #613879;
+}
+button.btn-cart:hover, 
+div.actions button.btn-cart:hover{
+	background: url("../images/plus.png") no-repeat scroll 10px center #7ca647;
+}
+.product-sale-off{
+	background: #7ca647;
+}
+.product-sale-off span.sale-off-percent{
+	background: #613879;
+}
+a.shop-now, a.view-deals{
+	background: #7ca647;
+}
+.ma2-widgettabs .tabsData .tabs-spacer{
+	background: #613879;
+	border-bottom: 2px solid #7ca647;
+}
+.ma2-widgettabs .tabsData .tab.active{
+	background: #7ca647;
+}
+.product-view #product-collateral-tabs .tab{
+	background: #7ca647;
+}
+.product-view #product-collateral-tabs .active{
+	background: #613879;
+}
+.bottomBlock3{
+	background: #613879;
+}
+.footerBlock2 {
+    border-bottom: 5px solid #613879;
+}
+.footer li a:hover {
+    color: #7ca647;
+}
+.cart-table .btn-empty span, .cart-table .btn-continue span, .cart-table .btn-update span,
+button.btn-checkout,
+.buttons-set button.button,
+.buttons-set button.button span,
+#checkoutSteps button.button span{
+	background: none repeat scroll 0 0 #7CA647;
+}

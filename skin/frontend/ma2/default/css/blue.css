@@ -1,0 +1,99 @@
+/* Document CSS */
+a, 
+a.forcus, 
+a:hover{
+	color: #23a7c6;
+}
+.header .links a:hover{
+	color: #23a7c6;
+}
+.show .slide .item-desc h1.title a{
+	color: #23a7c6;
+}
+.top1 .block-cart{
+	background: #bb4450;
+}
+.block-cart .actions button.button:hover span span,
+.block-cart .actions button.button:hover span{
+	color: #ddd;
+}
+.nav-container{
+	background: #bb4450;
+}
+#nav li.over,
+#nav li.active{
+	background: #23a7c6;
+}
+.maintopBlock2 .widget-block .widget-i{
+	background: url("../images/blue/saleoff-bg.png") no-repeat scroll 0 0 #23a7c6;
+}
+.block-title{
+	background: #23a7c6;
+}
+.col-left .bestselling-products .products-list li.item:hover,
+.col-right .bestselling-products .products-list li.item:hover{
+	background: #bb4450;
+}
+.col-left .bestselling-products .products-list button.button, 
+.col-left .bestselling-products .products-list button.btn-cart,
+.col-right .bestselling-products .products-list button.button, 
+.col-right .bestselling-products .products-list button.btn-cart{
+	background: url("../images/plus.png") no-repeat scroll center center #bb4450;
+}
+.col-left .bestselling-products .products-list li.item:hover button.button, 
+.col-left .bestselling-products .products-list li.item:hover button.btn-cart,
+.col-right .bestselling-products .products-list li.item:hover button.button, 
+.col-right .bestselling-products .products-list li.item:hover button.btn-cart{
+	background: url("../images/plus.png") no-repeat scroll center center #23a7c6;
+}
+.col-left ul li a:hover,
+.col-right ul li a:hover{
+	color: #278196;
+}
+ul.list-category li a.current, 
+ul.list-category li li a.current{
+	color: #278196;
+}
+button.btn-cart, 
+div.actions button.btn-cart{
+	background: url("../images/plus.png") no-repeat scroll 10px center #bb4450;
+}
+button.btn-cart:hover, 
+div.actions button.btn-cart:hover{
+	background: url("../images/plus.png") no-repeat scroll 10px center #23a7c6;
+}
+.product-sale-off{
+	background: #23a7c6;
+}
+.product-sale-off span.sale-off-percent{
+	background: #bb4450;
+}
+a.shop-now, a.view-deals{
+	background: #23a7c6;
+}
+.ma2-widgettabs .tabsData .tabs-spacer{
+	background: #bb4450;
+	border-bottom: 2px solid #23a7c6;
+}
+.ma2-widgettabs .tabsData .tab.active{
+	background: #23a7c6;
+}
+.product-view #product-collateral-tabs .active{
+	background: #bb4450;
+}
+.bottomBlock3{
+	background: #bb4450;
+}
+.footerBlock2 {
+    border-bottom: 5px solid #bb4450;
+}
+.footer li a:hover {
+    color: #278196;
+}
+.cart-table .btn-empty span, .cart-table .btn-continue span, .cart-table .btn-update span,
+button.btn-checkout,
+.buttons-set button.button,
+.buttons-set button.button span,
+#checkoutSteps button.button span{
+	background: none repeat scroll 0 0 #23A7C6;
+}

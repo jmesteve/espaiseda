@@ -1,5 +1,6 @@
 # Ignores
 var/cache/*
 var/session/*
+var/locks/*
 app/etc/local.xml
 

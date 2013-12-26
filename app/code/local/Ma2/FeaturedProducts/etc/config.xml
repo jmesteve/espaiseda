@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!-- OMG&VDH -->
+<config>
+    <!-- Modules -->
+    <modules>
+        <Ma2_FeaturedProducts>
+            <version>2.0.0</version>
+        </Ma2_FeaturedProducts>
+    </modules>
+    
+    <!-- FrontEnd -->
+    <frontend>
+        <routers>
+            <FeaturedProducts>
+                <use>standard</use>
+                <args>
+                    <module>Ma2_FeaturedProducts</module>
+                    <frontName>FeaturedProducts</frontName>
+                </args>
+            </FeaturedProducts>
+        </routers>
+        <layout>
+            <updates>
+                <FeaturedProducts>
+                     <file>ma2featuredproducts.xml</file>
+                </FeaturedProducts>
+            </updates>
+        </layout>
+    </frontend>
+    
+    <!-- Admin -->
+    <admin>
+         <routers>
+            <FeaturedProducts>
+                <use>admin</use>
+                <args>
+                    <module>Ma2_FeaturedProducts</module>
+                    <frontName>FeaturedProducts</frontName>
+                </args>
+            </FeaturedProducts>
+        </routers>
+     </admin>
+     
+    <!-- AdminHtml -->
+     <adminhtml> 
+     
+        <!-- Menu --> 
+        <menu>            
+            <ma2>
+                <children>
+                    <FeaturedProducts translate="title" module="FeaturedProducts">
+                        <title>Featured Products</title>
+                        <sort_order>1</sort_order>
+                        <action>FeaturedProducts/adminhtml_featured</action>
+                    </FeaturedProducts>
+                </children>
+            </ma2>            
+        </menu>  
+        
+        <!-- acl -->      
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <FeaturedProducts>
+                            <title>Featured Products</title>
+                            <sort_order>200</sort_order>
+                        </FeaturedProducts>
+                    </children>
+                </admin>
+            </resources>    
+        </acl>
+        
+        <!-- layout -->
+        <layout>
+              <updates>
+                  <FeaturedProducts>
+                      <file>ma2featuredproduct.xml</file>
+                   </FeaturedProducts>
+              </updates>
+        </layout>                                               
+    </adminhtml>
+    
+    <!-- Global -->    
+    <global>
+        <!-- Models -->
+        <models>
+            <FeaturedProducts>
+                <class>Ma2_FeatureProducts_Model</class>
+                <resourceModel>FeaturedProducts_mysql4</resourceModel>
+            </FeaturedProducts>
+            <FeaturedProducts_mysql4>
+                <class>Ma2_FeaturedProducts_Model_Mysql4</class>
+                <entities>
+                    <FeaturedProducts>
+                        <table>FeaturedProducts</table>  
+                        <!-- Actual table name in sql  -->
+                    </FeaturedProducts>
+                </entities>
+            </FeaturedProducts_mysql4>
+        </models>
+        
+        <!-- Resources -->
+        <resources>  
+        <!-- These are resource setting giving access to module, 
+             read/write permission on database -->
+            <FeaturedProducts_setup>
+                <setup>
+                    <module>Ma2_FeaturedProducts</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </FeaturedProducts_setup>
+            <FeaturedProducts_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </FeaturedProducts_write>
+            <FeaturedProducts_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </FeaturedProducts_read>
+        </resources>
+        
+        <!-- Blocks -->
+        <blocks>
+            <FeaturedProducts>
+                <class>Ma2_FeaturedProducts_Block</class>
+            </FeaturedProducts>
+        </blocks>
+        
+        <!-- Helper -->
+        <helpers>
+            <FeaturedProducts>
+                <class>Ma2_FeaturedProducts_Helper</class>
+            </FeaturedProducts>
+        </helpers>
+    </global>    
+</config>

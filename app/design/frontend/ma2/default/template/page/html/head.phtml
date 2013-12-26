@@ -1,0 +1,274 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+// Ma2 ThemeOptions config
+$gfontCss = array();
+$valueFields = array();
+$themeOptions = Mage::getStoreConfig('theme_options');
+if (isset($themeOptions)) {
+	foreach ($themeOptions as $group_key=>$group) 
+	{
+		foreach ($group as $key=>$field) 
+		{
+			$valueFields[$key] = $field;
+		}
+	}
+}
+$themeOptions = json_decode(json_encode($valueFields));
+//media URL
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+/**
+ *Typography - body font config
+ */
+$body_change  = '';
+if($themeOptions->body_font_family_change == 1)
+{
+	$body_font_family = explode(':', $themeOptions->body_font_family);
+	
+	if(isset($body_font_family[0]) && isset($body_font_family[1]) && $body_font_family[0] == 'w')
+	{
+		$body_change .= 'font-family:"'.str_replace('+', ' ',$body_font_family[1]).'";';
+		$gfontCss[] = $body_font_family[1];
+
+	} 
+	else 
+	{
+		$body_change .= 'font-family:'.str_replace(array('s:','w:', '+'), array('','',' '), $themeOptions->body_font_family).';';
+	}
+}
+if(trim($themeOptions->body_font_size) != null)
+{
+	$body_change .= 'font-size: '.$themeOptions->body_font_size.';';
+}
+if($themeOptions->body_text_color_change == 1)
+{
+	$body_change .= 'color:'.$themeOptions->body_text_color.';';
+}
+if(trim($themeOptions->body_line_height) != null)
+{
+	$body_change .= 'line-height: '.$themeOptions->body_line_height.';';
+}
+
+/**
+ *Typography - custom font-family
+ */
+if ($themeOptions->is_custom_font_1 == 1 && trim($themeOptions->custom_list_1) != null)
+{
+	$custom_font_family_1 = explode(':', $themeOptions->custom_font_family_1);
+	
+	if(isset($custom_font_family_1[0]) && isset($custom_font_family_1[1]) && $custom_font_family_1[0] == 'w')
+	{
+		$custom_list_1 = $themeOptions->custom_list_1 .'{font-family:"'.str_replace('+',' ',$custom_font_family_1[1]).'";}';
+		$gfontCss[] = $custom_font_family_1[1];
+	} 
+	else 
+	{
+		$custom_list_1 = $themeOptions->custom_list_1 .'{font-family:'.str_replace(array('s:','w:'), '', $themeOptions->custom_font_family_1).';}';
+	}
+}
+
+if ($themeOptions->is_custom_font_2 == 1 && trim($themeOptions->custom_list_2) != null)
+{
+	$custom_font_family_2 = explode(':', $themeOptions->custom_font_family_2);
+	
+	if(isset($custom_font_family_2[0]) && isset($custom_font_family_2[1]) && $custom_font_family_2[0] == 'w')
+	{
+		$custom_list_2 = $themeOptions->custom_list_2 .'{font-family:"'.str_replace('+',' ',$custom_font_family_2[1]).'";}';
+		$gfontCss[] = $custom_font_family_2[1];
+	} 
+	else 
+	{
+		$custom_list_2 = $themeOptions->custom_list_2 .'{font-family:'.str_replace(array('s:','w:'), '', $themeOptions->custom_font_family_2).';}';
+	}
+}
+/**
+ *Typography - custom css
+ */
+if ($themeOptions->is_custom_css == 1 && trim($themeOptions->custom_css) != null) 
+{
+	$custom_css = $themeOptions->custom_css;
+}
+ 
+/**
+ *Background - body config
+ */
+if($themeOptions->body_background_change == 1)
+{
+	if($themeOptions->body_background_color_change == 1 && $themeOptions->body_background_image != '')
+	{
+		$body_change .= 'background: url("'. $mediaUrl .'/ma2/images/'. $themeOptions->body_background_image .'") '. $themeOptions->body_background_image_repeat .' '. $themeOptions->body_background_image_position .' '.$themeOptions->body_background_color .';';
+		
+	} 
+	else if ($themeOptions->body_background_color_change == 1 && $themeOptions->body_background_image == '')
+	{
+		$body_change .= 'background:'.$themeOptions->body_background_color .';';
+		
+	} 
+	else if ($themeOptions->body_background_color_change == 0 && $themeOptions->body_background_image != '')
+	{
+		$body_change .= 'background:  url("'. $mediaUrl .'/ma2/images/'. $themeOptions->body_background_image .'") '. $themeOptions->body_background_image_repeat .' '. $themeOptions->body_background_image_position .';';
+	}
+}
+/**
+ *Background - header config
+ */
+$header_change = '';
+if($themeOptions->header_background_change == 1)
+{
+	if($themeOptions->header_background_color_change == 1 && $themeOptions->header_background_image != '')
+	{
+		$header_change .= 'background: url("'. $mediaUrl .'/ma2/images/'. $themeOptions->header_background_image .'") '. $themeOptions->header_background_image_repeat .' '. $themeOptions->header_background_image_position .' '.$themeOptions->header_background_color .';';
+		
+	} 
+	else if ($themeOptions->header_background_color_change == 1 && $themeOptions->header_background_image == '')
+	{
+		$header_change .= 'background:'.$themeOptions->header_background_color .';';
+		
+	} 
+	else if ($themeOptions->header_background_color_change == 0 && $themeOptions->header_background_image != '')
+	{
+		$header_change .= 'background:  url("'. $mediaUrl .'/ma2/images/'. $themeOptions->header_background_image .'") '. $themeOptions->header_background_image_repeat .' '. $themeOptions->header_background_image_position .';';
+	}
+}
+/**
+ *Background - main config
+ */
+$main_change = '';
+if($themeOptions->main_background_change == 1)
+{
+	if($themeOptions->main_background_color_change == 1 && $themeOptions->main_background_image != '')
+	{
+		$main_change .= 'background: url("'. $mediaUrl .'/ma2/images/'. $themeOptions->main_background_image .'") '. $themeOptions->main_background_image_repeat .' '. $themeOptions->main_background_image_position .' '.$themeOptions->main_background_color .';';
+		
+	} 
+	else if ($themeOptions->main_background_color_change == 1 && $themeOptions->main_background_image == '')
+	{
+		$main_change .= 'background:'.$themeOptions->main_background_color .';';
+		
+	} 
+	else if ($themeOptions->main_background_color_change == 0 && $themeOptions->main_background_image != '')
+	{
+		$main_change .= 'background:  url("'. $mediaUrl .'/ma2/images/'. $themeOptions->main_background_image .'") '. $themeOptions->main_background_image_repeat .' '. $themeOptions->main_background_image_position .';';
+	}
+}
+/**
+ *Background - footer config
+ */
+$footer_change = '';
+if($themeOptions->footer_background_change == 1)
+{
+	if($themeOptions->footer_background_color_change == 1 && $themeOptions->footer_background_image != '')
+	{
+		$footer_change .= 'background: url("'. $mediaUrl .'/ma2/images/'. $themeOptions->footer_background_image .'") '. $themeOptions->footer_background_image_repeat .' '. $themeOptions->footer_background_image_position .' '.$themeOptions->footer_background_color .';';
+		
+	} 
+	else if ($themeOptions->footer_background_color_change == 1 && $themeOptions->footer_background_image == '')
+	{
+		$footer_change .= 'background:'.$themeOptions->footer_background_color .';';
+		
+	} 
+	else if ($themeOptions->footer_background_color_change == 0 && $themeOptions->footer_background_image != '')
+	{
+		$footer_change .= 'background:  url("'. $mediaUrl .'/ma2/images/'. $themeOptions->footer_background_image .'") '. $themeOptions->footer_background_image_repeat .' '. $themeOptions->footer_background_image_position .';';
+	}
+}
+/**
+ *Layouts - theme width
+ */
+$theme_width = '';
+if(trim($themeOptions->theme_width) != '')
+{
+	$theme_width .= 'width:'. $themeOptions->theme_width .';';
+}
+/**
+ *Layouts - left width
+ */
+$left_width = '';
+if(trim($themeOptions->left_width) != '')
+{
+	$left_width .= 'width:'. $themeOptions->left_width .';';
+}
+/**
+ *Layouts - right width
+ */
+$right_width = '';
+if(trim($themeOptions->right_width) != '')
+{
+	$right_width .= 'width:'. $themeOptions->right_width .';';
+}
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<?php if($themeOptions->favicon != '') : ?>
+<link rel="icon" href="<?php echo $mediaUrl.'ma2/images/'.$themeOptions->favicon; ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $mediaUrl.'ma2/images/'.$themeOptions->favicon; ?>" type="image/x-icon" />
+<?php else: ?>
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<?php endif; ?>
+<?php if(!empty($gfontCss)) : ?>
+<link type="text/css" href="//fonts.googleapis.com/css?family=<?php echo implode('|',$gfontCss) ?>" rel="stylesheet">
+<?php endif; ?>
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+<?php
+$_session = Mage::getSingleton('core/session');
+$_post = Mage::app()->getRequest()->getPost();
+if ($_post['submit_preset'] == 1 && $_post['params_demo_preset'] != '') {
+	$_session->setData('presetstyle', $_post['params_demo_preset']);
+}
+$presetstyle = Mage::getSingleton('core/session')->getData('presetstyle');
+if(!isset($presetstyle) || empty($presetstyle)) $presetstyle = $themeOptions->preset_styles; ?>
+<link href="<?php echo $this->getSkinUrl().'css/'. $presetstyle .'.css'; ?>" type="text/css" rel="stylesheet">
+
+<?php
+// Ma2 ThemeOptions apply styles
+echo
+	'<style type="text/css">'.
+		'body{'.$body_change.'}'.
+		'div.header{'.$header_change .'}'.
+		'div.main{'.$main_change .'}'.
+		'div.footer{'.$footer_change .'}'.
+		$custom_list_1.
+		$custom_list_2.
+		$custom_css.
+		'div.container{'.$theme_width.'}'.
+		'div.left_width{'.$left_width.'}'.
+		'div.right_width{'.$right_width.'}'.
+	'</style>'
+?>

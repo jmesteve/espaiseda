@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+            <!-- <action method="addItem"><type>skin_css</type><stylesheet>css/ma2tabs/magento.css</stylesheet></action> -->
+            <action method="addItem"><type>skin_css</type><stylesheet>css/ma2widgettabs/widgettabs.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>js/ma2widgettabs/widgettabs.js</name></action>
+        </reference>
+		<!-- <reference name="root">
+            <block type="WidgetTabs/WidgetTabs" name="ma2WidgetTabs" template="ma2widgettabs/widgettabs.phtml" />
+        </reference> -->
+    </default>
+</layout> 

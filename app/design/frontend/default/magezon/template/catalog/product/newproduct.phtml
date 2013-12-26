@@ -1,0 +1,107 @@
+<?php
+//{{block type="core/template" show_total="100" name="product_featured" as="product_featured" template="catalog/product/featured.phtml}}
+
+
+
+$totalPerPage = ($this->show_total) ? $this->show_total : 6;
+$visibility = array(
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+                      Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+                  );
+
+$storeId = Mage::app()->getStore()->getId();
+
+$_productCollection = Mage::getResourceModel('reports/product_collection')
+						->addAttributeToSelect('*')     
+					    ->setStoreId($storeId)
+                        ->addStoreFilter($storeId)	
+					    ->addAttributeToFilter('visibility', $visibility)
+						//->addAttributeToFilter('featured', true)
+						->setOrder('created_at', 'desc')
+						->addAttributeToSelect('status') 
+						->setPageSize($totalPerPage);
+Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($_productCollection);
+Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($_productCollection);
+Mage::getSingleton('catalog/product_visibility')->addVisibleInSearchFilterToCollection($_productCollection);
+
+
+// // if product is part of configurable product get first parent product
+// $junkProducts = new Varien_Data_Collection();
+// foreach ($_productCollection as $k => $p) {
+	// $p = $p->loadParentProductIds();
+	// $parentIds = $p->getData('parent_product_ids');	
+	// if (is_array($parentIds) && !empty($parentIds)) {
+		// if (!$junkProducts->getItemById($parentIds[0])) {
+			// $parentProduct = Mage::getModel('catalog/product')->setStoreId($storeId)->load($parentIds[0]);
+			// if ($parentProduct->isVisibleInCatalog()) {
+				// $junkProducts->addItem($parentProduct);
+			// }
+		// }
+	// } else {
+		// if (!$junkProducts->getItemById($k)) {
+			// $junkProducts->addItem($p);
+		// }
+	// }		
+// }
+// $_productCollection = $junkProducts;
+// //end if product is part of configurable product get first parent product
+?>
+
+	<div class="clear_both"></div>
+	<?php if(count($_productCollection)>0):?>
+		<div class="new-product-title">
+			<strong><?php echo $this->__('New Products')?></strong>
+		</div>
+	<?php endif;?>
+	<div class="block-home-content products-grid">
+		<?php $_collectionSize = count($_productCollection) ?>
+		<?php $_columnCount = 3; ?>
+		<?php $i=0; foreach ($_productCollection as $_product): ?>
+		<?php if($i++%$_columnCount==0): ?>
+			<ol class="grid-row">
+		<?php endif; ?>
+			<li class="item <?php if($i%3==1):?> first <?php elseif($i%3==0):?>last<?php endif;?>">
+				<div class="boxgrid-captionfull">
+					<h2><a class="product-name" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h2>
+					<div class="cover-boxcaption">
+						<div class="product-description">
+							<a class="product-image" href="<?php echo $_product->getProductUrl() ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135,125); ?>"  width="139" height="125" alt="<?php echo $this->htmlEscape($_product->getName()) ?>"/></a>
+							
+							<?php if ($_product->getSpecialPrice()>0):?>
+								<div class="box_price">
+									<span class="special-price">
+										<span class="price"><?php echo $this->helper('checkout')->formatPrice($_product->getSpecialPrice()) ?> </span>
+									</span>
+									<span class="old-price">
+										<span  class="price"> <?php echo $this->helper('checkout')->formatPrice($_product->getPrice()) ?></span>
+									</span>
+								</div>
+							<?php else: ?>
+								<div class="box_price"><span class="price"><?php echo $this->helper('checkout')->formatPrice($_product->getPrice()) ?></span></div>
+							<?php endif; ?>
+							<button type="button" class="button btn-addcart"  onclick="setLocation('<?php echo  Mage::helper('checkout/cart')->getAddUrl($_product);?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+							<div class="clear_both"><span></span></div>
+							<div class="see-all">
+								<span>
+								<?php				
+									try{
+										$categories = $_product->getCategoryIds();				
+										$category = Mage::getModel('catalog/category')->load($categories[0]);
+										echo 'See all '.'<a href="'.$category->getUrl().'" >'.$category->getName().'</a>';				
+									} catch(Exception $e){}
+									?>
+								</span>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</li>
+			<?php if($i%$_columnCount==0 || $i==$_collectionSize): ?>
+			</ol>
+			<div class="clear_both"><span></span></div>
+			<?php endif; ?>
+			<?php //if($i>=3):break; endif;?>
+		<?php endforeach ?>
+		<script type="text/javascript">decorateGeneric($$('.grid-row'), ['last', 'odd', 'even']);</script>
+	</div>

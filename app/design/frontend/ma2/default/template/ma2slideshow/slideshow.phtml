@@ -1,0 +1,58 @@
+
+<?php if(count($items)) : ?> 
+<div id="ma2-slideshow" class="ma2-slideshow protoshow" style="height: <?php echo $options->slide_height; ?>px">
+	<ul class="show" style="height: <?php echo $options->slide_height; ?>px">
+	<?php foreach ($items as $item) : ?>
+		<li class="slide">
+			<img class="img-slide" src="<?php echo Mage::getBaseUrl('media').'ma2slideshow/'.$item->getFilename(); ?>" >
+			<?php if($options->display_title == 1 && $options->display_content == 1) : ?>
+			<div class="item-desc">
+				<?php if($options->display_title == 1) : ?>
+				<h1 class="title"><a href="<?php echo $item->getSlideshowUrl() ?>" target="_blank"><?php echo $item->getTitle(); ?></a></h1>
+				<?php endif; ?>
+				<?php if($options->display_content == 1) : ?>
+				<div class="item-content"><?php echo $item->getContent(); ?></div>
+				<?php endif; ?>
+			</div>
+			<?php endif; ?>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+</div>
+<?php 
+	$auto_play = ($options->auto_play == 1) ? 'true' : 'false';
+	$navigation = ($options->navigation == 1) ? 'true' : 'false';
+	$controls = ($options->controls == 1) ? 'true' : 'false';
+	$pauseOnHover = ($options->pauseOnHover == 1) ? 'true' : 'false';
+?>
+<script type="text/javascript">
+	<!--
+	Event.observe(window, "load", function() {
+		//ma2_js
+		var slideWidth = $('ma2-slideshow').getWidth();
+		$$('.show .slide').each(function(element){
+			element.setStyle({
+				width	:	slideWidth + 'px'
+			});
+		});
+		//options
+		$('ma2-slideshow') && $('ma2-slideshow').protoShow({
+			interval	:	<?php echo intval($options->interval); ?>,
+			autoPlay	:	<?php echo $auto_play; ?>,
+			transitionType	: "<?php echo $options->transitionType; ?>",
+			transitionTime	: <?php echo $options->transitionTime; ?>,
+			manTransitionTime	:	<?php echo $options->manTransitionTime; ?>,
+			navigation	:	<?php echo $navigation; ?>,
+			controls	:	<?php echo $controls; ?>,
+			stopText			: "||",
+			playText			: ">",
+			pauseOnHover	: <?php echo $pauseOnHover; ?>
+		});
+	});
+	-->
+</script>
+<?php endif; ?>
+
+
+
+

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ma2_ThemeOptions>
+            <version>1.0.0</version>
+        </Ma2_ThemeOptions>
+    </modules>
+	
+    <frontend>
+        <routers>
+            <ThemeOptions>
+                <use>standard</use>
+                <args>
+                    <module>Ma2_ThemeOptions</module>
+                    <frontName>ThemeOptions</frontName>
+                </args>
+            </ThemeOptions>
+        </routers>
+        <layout>
+            <updates>
+                <ThemeOptions>
+                    <file>ma2themeoptions.xml</file>
+                </ThemeOptions>
+            </updates>
+        </layout>
+    </frontend>
+
+	<adminhtml>
+        <layout>
+            <updates>
+                <ThemeOptions>
+                    <file>ma2themeoptions.xml</file>
+                </ThemeOptions>
+            </updates>
+        </layout>
+    </adminhtml>
+	
+	<global>
+		<models>
+            <ThemeOptions>
+                <class>Ma2_ThemeOptions_Model</class>
+            </ThemeOptions>
+        </models>
+		
+		<helpers>
+            <ThemeOptions>
+                <class>Ma2_ThemeOptions_Helper</class>
+            </ThemeOptions>
+        </helpers>
+		
+	    <events>
+	      <adminhtml_controller_action_predispatch_start>
+	        <observers>
+	          <Ma2_ThemeOptions_observer>
+	            <type>singleton</type>
+	            <class>Ma2_ThemeOptions_Controller_Observer</class>
+	            <method>overrideTheme</method>
+	          </Ma2_ThemeOptions_observer>
+	        </observers>
+	      </adminhtml_controller_action_predispatch_start>  		  
+	    </events> 
+       
+	    <extraconfig /> 
+		
+		<page>
+			<layouts>
+				<two_columns module="page" translate="label">
+					<label>2 columns</label>
+					<template>page/2columns.phtml</template>
+					<layout_handle>page_two_columns</layout_handle>
+				</two_columns>
+			</layouts>
+		</page>
+		
+	    <blocks>
+	    	<ThemeOptions>
+                <class>Ma2_ThemeOptions_Block</class>
+            </ThemeOptions>
+		</blocks>
+	</global>
+
+	<default>
+	
+		<theme_options>
+			<general>
+				<preset_styles></preset_styles>
+				<default_logo_image>default/logo.png</default_logo_image>
+				<is_custom_logo>0</is_custom_logo>
+				<logo_image></logo_image>
+				<logo_width></logo_width>
+				<logo_height></logo_height>
+				<slogan></slogan>
+				<favicon></favicon>
+			</general>
+			<typography>
+				<body_font_family_change>0</body_font_family_change>
+				<body_font_family></body_font_family>
+				<body_font_size></body_font_size>
+				<body_text_color_change>0</body_text_color_change>
+				<body_text_color>#333333</body_text_color>
+				<body_line_height></body_line_height>
+				
+				<is_custom_font_1>0</is_custom_font_1>
+				<custom_font_family_1></custom_font_family_1>
+				<custom_list_1></custom_list_1>
+				
+				<is_custom_font_2>0</is_custom_font_2>
+				<custom_font_family_2></custom_font_family_2>
+				<custom_list_2></custom_list_2>
+				
+				<is_custom_css>0</is_custom_css>
+				<custom_css></custom_css>
+			</typography>
+			<background>
+				<body_background_change>0</body_background_change>
+				<body_background_color_change>0</body_background_color_change>
+				<body_background_color></body_background_color>
+				<body_background_image></body_background_image>
+				<body_background_image_repeat></body_background_image_repeat>
+				<body_background_image_position></body_background_image_position>
+				
+				<header_background_change>0</header_background_change>
+				<header_background_color_change>0</header_background_color_change>
+				<header_background_color></header_background_color>
+				<header_background_image></header_background_image>
+				<header_background_image_repeat></header_background_image_repeat>
+				<header_background_image_position></header_background_image_position>
+				
+				<!-- <main_background_change>0</main_background_change>
+				<main_background_color_change>0</main_background_color_change>
+				<main_background_color></main_background_color>
+				<main_background_image></main_background_image>
+				<main_background_image_repeat></main_background_image_repeat>
+				<main_background_image_position></main_background_image_position>
+				
+				<footer_background_change>0</footer_background_change>
+				<footer_background_color_change>0</footer_background_color_change>
+				<footer_background_color></footer_background_color>
+				<footer_background_image></footer_background_image>
+				<footer_background_image_repeat></footer_background_image_repeat>
+				<footer_background_image_position></footer_background_image_position> -->
+			</background>
+			<layouts>
+				<theme_width></theme_width>
+				<left_width></left_width>
+				<right_widht></right_widht>
+			</layouts>
+		</theme_options>
+	</default>
+</config>

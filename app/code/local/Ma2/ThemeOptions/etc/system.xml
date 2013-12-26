@@ -1,0 +1,702 @@
+<config>
+    <tabs>
+        <ma2 translate="label" module="ThemeOptions">
+            <label>MagenMarket Extension</label>
+            <sort_order>168</sort_order>
+        </ma2>
+    </tabs>
+    <sections>  
+        <theme_options translate="label" module="ThemeOptions">
+			<label>Theme Options</label>
+			<tab>ma2</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>           
+            <groups>			
+				<general translate="label">
+                    <label>General</label>
+					<frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>						
+                        <preset_styles translate="label">
+                            <label>Preset styles</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>ThemeOptions/presetstyles</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </preset_styles>
+						<label1>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label1>
+						<default_logo_image translate="label">
+							<label>Default logo</label>
+							<comment>This is logo default.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <!-- would upload into media/uploaddir -->
+                            <base_url type="media" scope_info="1">ma2/images</base_url> 
+                            <!-- same as previous line -->
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+                                <is_custom_logo>0</is_custom_logo>
+                            </depends>
+						</default_logo_image>
+						<is_custom_logo translate="label">
+							<label>Custom logo?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</is_custom_logo>
+						<logo_image translate="label">
+							<label>Logo image</label>
+							<comment>
+                                <![CDATA[
+                                    Allowed file types: png, gif, jpg <br /> Not all browsers support all these formats! <br />Leave empty it will show the default.
+                                ]]>                                                      
+                            </comment>
+                            <frontend_type>image</frontend_type>
+                            
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <!-- would upload into media/uploaddir -->
+                            <base_url type="media" scope_info="1">ma2/images</base_url> 
+                            <!-- same as previous line -->
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <is_custom_logo>1</is_custom_logo>
+                            </depends>
+						</logo_image>
+						<logo_width translate="label">
+							<label>Logo width</label>
+							<frontend_type>text</frontend_type>                          
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <is_custom_logo>1</is_custom_logo>
+                            </depends>
+							<comment>Example: 250px. If leave empty it will be automatically resized.</comment>
+						</logo_width>
+						<logo_height translate="label">
+							<label>Logo height</label>
+							<frontend_type>text</frontend_type>                       
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <is_custom_logo>1</is_custom_logo>
+                            </depends>
+							<comment>Example: 100px. If leave empty it will be automatically resized.</comment>
+						</logo_height>
+						<label2>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label2>
+						<slogan translate="label">
+							<label>Slogan</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment></comment>
+						</slogan>
+						<label3>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label3>
+                        <favicon translate="label">
+							<label>Favicon</label>
+							<comment>
+                                <![CDATA[
+                                      Allowed file types: ico, png, gif <br /> Not all browsers support all these formats! <br />Leave empty it will show the default.
+                                ]]>                                                      
+                            </comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <!-- would upload into media/uploaddir -->
+                            <base_url type="media" scope_info="1">ma2/images</base_url>
+                            <!-- same as previous line -->
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</favicon>
+                    </fields>                
+				</general> 
+				<typography translate="label">
+					<label>Typography</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<body_font_family_change translate="label">
+							<label>Body font-family change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</body_font_family_change>
+						<body_font_family translate="label">
+							<label>Body font-family</label>
+							<frontend_type>Select</frontend_type>
+							<source_model>ThemeOptions/fonts</source_model>
+							<frontend_model>ThemeOptions/adminhtml_system_config_form_field_fontpreview</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+								<body_font_family_change>1</body_font_family_change>
+							</depends>
+						</body_font_family>
+						<body_font_size translate="label">
+							<label>Body font-size</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: 12px or 1.1em or 75%. Leave empty it will be applied by default CSS file.</comment>							
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</body_font_size>
+						<body_text_color_change translate="label">
+							<label>Body text color change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</body_text_color_change>
+						<body_text_color translate="label">
+							<label>Body text color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_class>color {hash:true,adjust:true}</frontend_class>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+								<body_text_color_change>1</body_text_color_change>
+							</depends>
+						</body_text_color>
+						<body_line_height translate="label">
+							<label>Body line height</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: 12px or 1.2em or 75%. Leave empty it will be applied by default CSS file.</comment>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</body_line_height>						
+						<!--Body end-->
+						<label4>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label4>
+						<!--Custom css-->
+						<is_custom_font_1 translate="label">
+							<label>Choose a custom font-family for bellow selectors?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</is_custom_font_1>
+						<custom_font_family_1 translate="label">
+							<label></label>
+							<frontend_type>Select</frontend_type>
+							<source_model>ThemeOptions/fonts</source_model>
+							<frontend_model>ThemeOptions/adminhtml_system_config_form_field_fontpreview</frontend_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+								<is_custom_font_1>1</is_custom_font_1>
+							</depends>
+						</custom_font_family_1>
+						<custom_list_1 translate="label">
+							<label></label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Type the selector list, comma separator. Example: h1, h2, div.your_class</comment>
+						</custom_list_1>
+						
+						<is_custom_font_2 translate="label">
+							<label>Choose a custom font-family for bellow selectors?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</is_custom_font_2>
+						<custom_font_family_2 translate="label">
+							<label></label>
+							<frontend_type>Select</frontend_type>
+							<source_model>ThemeOptions/fonts</source_model>
+							<frontend_model>ThemeOptions/adminhtml_system_config_form_field_fontpreview</frontend_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+								<is_custom_font_2>1</is_custom_font_2>
+							</depends>
+						</custom_font_family_2>
+						<custom_list_2 translate="label">
+							<label></label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Type the selector list, comma separator. Example: h1, h2, div.your_class</comment>
+						</custom_list_2>
+						
+						<is_custom_css translate="label">
+							<label>Custom CSS?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</is_custom_css>
+						<custom_css translate="label">
+							<label></label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>
+							<![CDATA[
+							Type your custom CSS code. Example: <br /><span style="border: 1px solid #DDD; padding: 0.5em;display:block;">h1{ color:#333; font-size: 18px;}<br /> div.your_class{ color: #666;}</span>
+							]]></comment>
+							<depends>
+								<is_custom_css>1</is_custom_css>
+							</depends>
+						</custom_css>
+						<!--Custom css end-->
+					</fields>
+				</typography>
+				
+				<background translate="label">
+					<label>Background</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<body_background_change translate="label">
+							<label>Body background change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</body_background_change>
+						<body_background_color_change translate="label">
+							<label>Body background color change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<body_background_change>1</body_background_change>
+							</depends>
+						</body_background_color_change>
+						<body_background_color translate="label">
+							<label>Body background color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_class>color {hash:true,adjust:true}</frontend_class>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<body_background_color_change>1</body_background_color_change>
+								<body_background_change>1</body_background_change>
+							</depends>
+						</body_background_color>
+						<body_background_image translate="label">
+							<label>Body background image</label>
+							<frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <!-- would upload into media/uploaddir -->
+                            <base_url type="media" scope_info="1">ma2/images</base_url>
+                            <!-- same as previous line -->
+							<comment>Allowed file types: png, gif, jpg, jpeg. Not all browsers support all these formats!</comment>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<body_background_change>1</body_background_change>
+							</depends>
+						</body_background_image>
+						<body_background_image_repeat translate="label">
+							<label>Body background repeat</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundrepeat</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<body_background_change>1</body_background_change>
+							</depends>
+						</body_background_image_repeat>
+						<body_background_image_position translate="label">
+							<label>Body background position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundposition</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<body_background_change>1</body_background_change>
+							</depends>
+						</body_background_image_position>
+						<!-- Body end -->
+						<label5>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label5>
+						<header_background_change translate="label">
+							<label>Header background change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</header_background_change>
+						<header_background_color_change translate="label">
+							<label>Header background color change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<header_background_change>1</header_background_change>
+							</depends>
+						</header_background_color_change>
+						<header_background_color translate="label">
+							<label>Header background color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_class>color {hash:true,adjust:true}</frontend_class>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<header_background_color_change>1</header_background_color_change>
+								<header_background_change>1</header_background_change>
+							</depends>
+						</header_background_color>
+						<header_background_image translate="label">
+							<label>Header background image</label>
+							<frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <!-- would upload into media/uploaddir -->
+                            <base_url type="media" scope_info="1">ma2/images</base_url>
+                            <!-- same as previous line -->
+							<comment>Allowed file types: png, gif, jpg, jpeg. Not all browsers support all these formats!</comment>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<header_background_change>1</header_background_change>
+							</depends>
+						</header_background_image>
+						<header_background_image_repeat translate="label">
+							<label>Header background repeat</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundrepeat</source_model>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<header_background_change>1</header_background_change>
+							</depends>
+						</header_background_image_repeat>
+						<header_background_image_position translate="label">
+							<label>Header background position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundposition</source_model>
+							<sort_order>13</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<header_background_change>1</header_background_change>
+							</depends>
+						</header_background_image_position>
+						<!-- Header end -->
+						<!-- <label6>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label6>
+						<main_background_change translate="label">
+							<label>Main background change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</main_background_change>
+						<main_background_color_change translate="label">
+							<label>Main background color change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>16</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<main_background_change>1</main_background_change>
+							</depends>
+						</main_background_color_change>
+						<main_background_color translate="label">
+							<label>Main background color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_class>color {hash:true,adjust:true}</frontend_class>
+							<sort_order>17</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<main_background_color_change>1</main_background_color_change>
+								<main_background_change>1</main_background_change>
+							</depends>
+						</main_background_color>
+						<main_background_image translate="label">
+							<label>Main background image</label>
+							<frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <base_url type="media" scope_info="1">ma2/images</base_url>
+							<comment>Allowed file types: png, gif, jpg, jpeg. Not all browsers support all these formats!</comment>
+							<sort_order>18</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<main_background_change>1</main_background_change>
+							</depends>
+						</main_background_image>
+						<main_background_image_repeat translate="label">
+							<label>Main background repeat</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundrepeat</source_model>
+							<sort_order>19</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<main_background_change>1</main_background_change>
+							</depends>
+						</main_background_image_repeat>
+						<main_background_image_position translate="label">
+							<label>Main background position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundposition</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<main_background_change>1</main_background_change>
+							</depends>
+						</main_background_image_position> -->
+						<!-- Main end -->
+						<!-- <label7>
+							<label></label>
+							<frontend_type>label</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</label7>
+						<footer_background_change translate="label">
+							<label>Footer background change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>22</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footer_background_change>
+						<footer_background_color_change translate="label">
+							<label>Footer background color change?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>23</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<footer_background_change>1</footer_background_change>
+							</depends>
+						</footer_background_color_change>
+						<footer_background_color translate="label">
+							<label>Footer background color</label>
+							<frontend_type>text</frontend_type>
+							<frontend_class>color {hash:true,adjust:true}</frontend_class>
+							<sort_order>24</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<footer_background_color_change>1</footer_background_color_change>
+								<footer_background_change>1</footer_background_change>
+							</depends>
+						</footer_background_color>
+						<footer_background_image translate="label">
+							<label>Footer background image</label>
+							<frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">ma2/images</upload_dir>
+                            <base_url type="media" scope_info="1">ma2/images</base_url>
+							<comment>Allowed file types: png, gif, jpg, jpeg. Not all browsers support all these formats!</comment>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<footer_background_change>1</footer_background_change>
+							</depends>
+						</footer_background_image>
+						<footer_background_image_repeat translate="label">
+							<label>Footer background repeat</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundrepeat</source_model>
+							<sort_order>26</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<footer_background_change>1</footer_background_change>
+							</depends>
+						</footer_background_image_repeat>
+						<footer_background_image_position translate="label">
+							<label>Footer background position</label>
+							<frontend_type>select</frontend_type>
+							<source_model>ThemeOptions/backgroundposition</source_model>
+							<sort_order>27</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<footer_background_change>1</footer_background_change>
+							</depends>
+						</footer_background_image_position> -->
+						<!-- Footer end -->
+					</fields>
+				</background>
+				
+				<layouts translate="label">
+					<label>Layouts</label>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<right_widht translate="label">
+							<label>Right column width</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: 250px. Leave empty it will be applied by default CSS file.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</right_widht>
+						
+						<left_width translate="label">
+							<label>Left column width</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: 250px. Leave empty it will be applied by default CSS file.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</left_width>
+						
+						<theme_width translate="label">
+							<label>Site width</label>
+							<frontend_type>text</frontend_type>
+							<comment>Example: 980px. Leave empty it will be applied by default CSS file.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</theme_width>						
+					</fields>
+				</layouts>
+            </groups>
+        </theme_options>                
+    </sections>
+</config>

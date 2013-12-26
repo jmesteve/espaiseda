@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+	    <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorchooser/jscolor.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/webfonts/webfont.js</name>
+            </action>
+        </reference>
+    </default>
+</layout>

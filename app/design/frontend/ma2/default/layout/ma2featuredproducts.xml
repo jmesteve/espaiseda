@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <featuredproducts_index_index>
+        <reference name="content">
+            <block type="featuredproducts/product_list" name="featured_product_list" template="ma2featuredproducts/featuredproducts.phtml" />
+        </reference>
+    </featuredproducts_index_index>
+</layout>

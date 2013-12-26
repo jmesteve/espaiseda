@@ -1,0 +1,43 @@
+<?php $rid = Mage::helper("WidgetTabs")->randomkeys(16);?>
+<div class="ma2-widgettabs">
+<dl id="tabsData<?php echo $rid;?>" class="tabsData">
+	<div class="tabs-spacer"></div>
+<?php foreach($tabsData as $idx => $tab):?>
+	<dt id="tab_<?php echo $idx; ?>" class="tab"><span><?php echo $tab['title'];?></span></dt>
+	<dd id="tab_<?php echo $idx; ?>_contents" class="tab-container">
+		<div class="tab-content">
+			<?php 
+			
+			echo Mage::helper('cms')->getBlockTemplateProcessor()->filter($tab['text']);
+			
+			//$wids = Mage::getModel('widget/widget_instance')->load($tab['content'])->getData();
+			
+			//echo Mage::app()->getLayout()->createBlock($wids['type'], $rid, $wids['widget_parameters'])->toHtml();
+			//echo "<pre>";
+			//var_dump($wids);
+			// $filter = new Mage_Widget_Model_Template_Filter();
+			// $_widget = $filter->filter('{{widget type="'.$wids->getType().'"   template="'.$page_template.'"}}');			
+			
+			// echo $_widget;
+			
+			// <block type="cms/widget_block" name="19490c4181744bbc9a1a5b50ca8cb710" template="cms/widget/static_block/default.phtml"><action method="setData"><name>block_id</name><value>9</value></action></block>
+			
+			//Mage::helper('cms')->getBlockTemplateProcessor()->filter('');
+			//echo $this->getLayout()->createBlock($wids->getType())->setTemplate($page_template)->setPageId($page_id)->toHtml();
+			
+			//echo $this->getLayout()->createBlock($wids['type'])->setTemplate($wids['page_groups'][0]['page_template'])->setPageId($wids['page_groups'][0]['page_id'])->toHtml();
+			?>
+		</div>
+	</dd>
+<?php endforeach;?>    
+   
+</dl>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var Ma2Tabs<?php echo $rid;?> = new Ma2All.Tabs('tabsData<?php echo $rid;?>');
+    Event.observe(window, 'load', function() {
+        Ma2Tabs<?php echo $rid;?>.select();
+    });
+//]]>
+</script>

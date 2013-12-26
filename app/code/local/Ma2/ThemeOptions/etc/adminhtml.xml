@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<config>
+
+	<menu> 
+		<ma2 translate="title" module="ThemeOptions">
+			<title>MA2</title>
+			<sort_order>9999</sort_order>
+			<children>
+				<theme_options translate="title" module="ThemeOptions">
+					<title>Theme Options</title>
+					<sort_order>1</sort_order>
+					<action>adminhtml/system_config/edit/section/theme_options</action>
+				</theme_options>
+			</children>
+		</ma2>
+	</menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <theme_options module="ThemeOptions">
+                                        <title>Theme Options</title>
+                                        <sort_order>1</sort_order>
+                                    </theme_options>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                 </children>
+            </admin>
+        </resources>
+    </acl> 
+</config>
